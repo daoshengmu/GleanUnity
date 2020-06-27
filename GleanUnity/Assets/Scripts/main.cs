@@ -9,16 +9,17 @@ public class main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.fullScreen = false;
         // Redirect third party library logs to Unity panel.
         SystemConsoleRedirector.Redirect();
-
+        
         Console.WriteLine("Begin Glean test.");
 
         GleanInstance.Initialize(
                applicationId: "org.mycompany.glean.tests",
                applicationVersion: "0.1",
                uploadEnabled: true,
-               configuration: new Configuration(),
+               configuration: new Configuration(channel: "debug", maxEvents: 500),
                dataDir: "data"
                );
 
