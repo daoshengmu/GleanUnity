@@ -9,7 +9,6 @@ public class main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Screen.fullScreen = false;
         // Redirect third party library logs to Unity panel.
         SystemConsoleRedirector.Redirect();
         
@@ -41,7 +40,6 @@ public class main : MonoBehaviour
         );
 
         metric.Set("my_data");
-
         ping.Submit();
 
         Console.WriteLine("End of Glean test.");
